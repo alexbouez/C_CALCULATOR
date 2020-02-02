@@ -8,7 +8,7 @@ target: main
 main: 
 	make -C build
 
-.PHONY: all cmake target main clean reset compile run test
+.PHONY: all cmake target main clean reset compile run test check
 
 clean:
 	rm -rf bin/*
@@ -22,4 +22,7 @@ run:
 	./bin/Calculator
 
 test:
-	(cd build && make test)
+	(cd build && make testi)
+
+check: compile
+	valgrind ./bin/Calculator
