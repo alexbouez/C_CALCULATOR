@@ -6,12 +6,15 @@ cmake:
 target : main
 
 main : 
-	make -s -C build
+	make -C build
 
-.PHONY: clean run
+.PHONY: clean run test
 
 clean :
 	rm -rf build/* bin/*
 
 run :
 	./bin/Calculator
+
+test :
+	(cd build && make test)
