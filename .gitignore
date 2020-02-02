@@ -1,6 +1,5 @@
-# Target directories
-build/
-bin/
+!.gitignore
 
 # Temp files
 *.swp
+
