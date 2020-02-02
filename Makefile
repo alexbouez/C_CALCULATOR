@@ -3,18 +3,23 @@ all: cmake target
 cmake:
 	(cd build && cmake ..)
 
-target : main
+target: main
 
-main : 
+main: 
 	make -C build
 
-.PHONY: clean run test
+.PHONY: all cmake target main clean reset compile run test
 
-clean :
-	rm -rf build/* bin/*
+clean:
+	rm -rf bin/*
 
-run :
+reset: clean
+	rm -rf build/*
+
+compile: target
+
+run:
 	./bin/Calculator
 
-test :
+test:
 	(cd build && make test)
