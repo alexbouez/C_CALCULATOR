@@ -1,0 +1,6 @@
+# Target directories
+build/
+bin/
+
+# Temp files
+*.swp
