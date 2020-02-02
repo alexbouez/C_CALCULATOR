@@ -1,3 +1,5 @@
-#include <string.h>
+#include <stdbool.h>
 
-void test(void);
+bool lexer(char *input);
+
+char *replace_char(char *str, char find, char replace);

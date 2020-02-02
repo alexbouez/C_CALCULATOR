@@ -1,11 +1,12 @@
 enum tokens {
     EXIT,
+    DIVIDER,
     INT,
     FLOAT,
     VARIABLE,
     PLUS,
     MINUS,
-    DIVIDE,
+    DIV,
     MULT,
     LPAR,
     RPAR

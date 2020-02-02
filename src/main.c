@@ -1,6 +1,7 @@
 #include <stdio.h> 
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "lexer/tokens.h"
 #include "lexer/lexer.h"
@@ -10,21 +11,22 @@
 
 int main(int argc, char *argv[])
 {
-	printf("\nWelcome to the C-Calculator!\n");
+	printf("Welcome to the C-Calculator!\n");
 
-    char *input;
-    char *line;
-    bool no_exit = true;
-    while (no_exit) {
+    //Allocating variables
+    char *input = malloc(sizeof(char *));
+    bool exit = false;
+    
+    while (!exit) {
         printf("\nType 'help' for user manual, 'exit' to close the process.\n>> Enter expression : ");
-        fgets(input, sizeof(char *), stdin);
+        fgets(input, sizeof(input), stdin);
 
-        test();
-
-        char *exit = "exit\n";
-        if (!strcmp(input, exit)) no_exit = false;
+        exit = lexer(input);
     }
 
+    //Freeing variables
+    free(input);
+    
     printf("\nStandard process exit.\n");
 	return EXIT_SUCCESS;
 }
